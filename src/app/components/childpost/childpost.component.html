@@ -1,0 +1,35 @@
+<div class="card bg-light text-center w-75 mx-auto p-3 mt-3" *ngFor = "let p of postTS; let i=index">
+  <h6 class="card-header">#{{i+1}}</h6>
+  <p class="card-text">{{p.post}}</p>
+  <cite>-{{p.name | titlecase}}</cite>
+  <div class="mx-auto editanchors w-100  mt-2">
+    <a class="m-1 float-right text-info" (click) = "edit(p, i)">Edit</a>
+    <a class="m-1 float-right text-danger" (click) = "delete(i)">Delete</a>
+    <a class="m-1 float-right text-warning" (click) = "reply($event)">Reply</a>
+    <div style="display:none">
+      <form class="bg-light p-5">
+        <div class="form-group">
+          <div class="col-sm">
+            <input type="text" class="form-control m-1 bg-light form-control" id="colFormLabelLg" placeholder="Enter your name" name="name" [(ngModel)] = "replyObject.name">  
+          </div>
+          <div class="col-sm">
+            <textarea class="form-control bg-light m-1 form-control" id="colFormLabelLg" placeholder="Reply to the post" name="post" [(ngModel)] = "replyObject.reply"></textarea>
+          </div>
+          <div class="col-sm">
+            <button class="form-control form-control btn btn-info" (click) = "submit(replyObject, i)" id="colFormLabelLg">Submit Reply</button>
+          </div>
+        </div> <!--div form-group col-->
+      </form> <!--form-->
+    </div> <!--div form style-->
+    <div class="w-100 p-3"></div>
+    <div class="card text-white w-75 float-right mt-2" *ngFor = "let r of p.reply; let i=index">
+      <h6 class="card-header">#{{i+1}}</h6>
+      <p class="card-text">{{r.reply}}</p>
+      <cite>-{{r.name}}</cite>
+        <!-- <div>
+          <button class="btn btn-warning" (click) = "editReply(p, i)">Edit</button>
+          <button class="btn btn-danger" (click) = "deleteReply(i)">Delete</button>
+        </div> -->
+    </div><!--2nd for Loop-->
+  </div> <!--div for btn, form, editachors-->
+</div> <!--1st for Loop-->

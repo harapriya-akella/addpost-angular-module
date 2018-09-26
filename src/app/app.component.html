@@ -1,0 +1,17 @@
+<h1 class="display-1 bg-light text-right">Add Post</h1>
+<form class="bg-info p-5" #parentformHTML = "ngForm">
+  <div class="form-group">
+    <div class="col-sm">
+      <input type="text" class="form-control form-control-lg" id="colFormLabelLg" required placeholder="Enter your name" name="name" [(ngModel)]="postObject.name">
+    </div>
+    <div class="col-sm">
+      <textarea class="form-control form-control-lg" id="colFormLabelLg" required  placeholder="Write Something" name="post" [(ngModel)]="postObject.post"></textarea>
+    </div>
+    <div class="col-sm">
+      <button class="btn btn-warning form-control form-control-lg" type="submit" [disabled]="!parentformHTML.valid" (click) = "submit(postObject)">Post</button>
+    </div>
+  </div>
+</form>
+
+
+<app-childpost [postHTML] = "postArray" (editHTML) = "edit($event)" (deleteHTML) = "delete($event)"></app-childpost>

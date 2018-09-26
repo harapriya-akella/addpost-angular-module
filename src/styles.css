@@ -1,0 +1,22 @@
+.editanchors a{
+    text-decoration: none;
+    transition: 0.5s ease;
+    cursor: pointer;
+    font-weight: 600;
+}
+.editanchors a:hover{
+    text-decoration: underline;
+    transition: 0.5s ease;
+}
+.editanchors .card{
+    background:lightskyblue;
+}
+.editanchors form .form-control{
+    border-width: 0px 0px 1px 0px;
+}
+.editanchors form input:focus{
+    box-shadow: none!important;
+}
+.editanchors form textarea:focus{
+    box-shadow: none!important;
+}
